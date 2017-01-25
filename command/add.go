@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"fmt"
 	"math/big"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
@@ -15,6 +16,11 @@ type AddCommand struct {
 }
 
 func (c *AddCommand) Run(args []string) int {
+	cmdsHtpasswd := []string{
+		"/usr/sbin/htpasswd",
+		"/usr/bin/htpasswd",
+	}
+
 	argsNum := len(args)
 	var generateNum int
 	if argsNum == 0 {
@@ -33,6 +39,16 @@ func (c *AddCommand) Run(args []string) int {
 	}
 	userString := args[0]
 
+	var cmdHtpasswd string
+	for _, cmd := range cmdsHtpasswd {
+		if Exists(cmd) {
+			cmdHtpasswd = cmd
+		}
+	}
+	if cmdHtpasswd == "" {
+		return 1
+	}
+
 	fmt.Printf("# group: %s, created: %s\n", userString, time.Now())
 
 	var pass string
@@ -40,7 +56,7 @@ func (c *AddCommand) Run(args []string) int {
 	for cnt := 0; cnt < generateNum; cnt++ {
 		pass = randomString(8)
 		user = fmt.Sprintf("%s%03d", userString, cnt+1)
-		out, err := exec.Command("/usr/sbin/htpasswd", "-nbB", user, pass).Output()
+		out, err := exec.Command(cmdHtpasswd, "-nbB", user, pass).Output()
 		if err != nil {
 			continue
 		}
@@ -69,4 +85,9 @@ func randomString(length int) string {
 		n[i] = strconv.FormatInt(c.Int64(), base)[0]
 	}
 	return string(n)
+}
+
+func Exists(filename string) bool {
+	_, err := os.Stat(filename)
+	return err == nil
 }
