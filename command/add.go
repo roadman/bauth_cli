@@ -9,6 +9,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/kyokomi/emoji"
 )
 
 type AddCommand struct {
@@ -64,6 +66,8 @@ func (c *AddCommand) Run(args []string) int {
 		fmt.Printf("%s\n", strings.TrimRight(string(out), "\n"))
 	}
 
+	endMessage := emoji.Sprint(":beer:Success!!")
+	fmt.Fprintln(os.Stderr, endMessage)
 	return 0
 }
 

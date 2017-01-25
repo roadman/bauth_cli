@@ -1,10 +1,12 @@
-hash: fd53f95de68a59abd564b2e1bc8902deaa991d59674f6629d0271e2fd73b6b55
-updated: 2017-01-25T22:53:17.465580159+09:00
+hash: bd7c9da45ebde8f4569a31e0c528e82203e45a5f9262c24c6310487492220c3d
+updated: 2017-01-26T01:05:53.507952769+09:00
 imports:
 - name: github.com/armon/go-radix
   version: 4239b77079c7b5d1243b7b4736304ce8ddb6f0f2
 - name: github.com/bgentry/speakeasy
   version: 675b82c74c0ed12283ee81ba8a534c8982c07b85
+- name: github.com/kyokomi/emoji
+  version: 7e06b236c489543f53868841f188a294e3383eab
 - name: github.com/mattn/go-isatty
   version: 30a891c33c7cde7b02a981314b4228ec99380cca
 - name: github.com/mitchellh/cli

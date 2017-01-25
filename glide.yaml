@@ -1,3 +1,4 @@
 package: github.com/roadman/bauth_cli
 import:
 - package: github.com/mitchellh/cli
+- package: github.com/kyokomi/emoji
