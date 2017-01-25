@@ -56,7 +56,7 @@ func (c *AddCommand) Run(args []string) int {
 	for cnt := 0; cnt < generateNum; cnt++ {
 		pass = randomString(8)
 		user = fmt.Sprintf("%s%03d", userString, cnt+1)
-		out, err := exec.Command(cmdHtpasswd, "-nbB", user, pass).Output()
+		out, err := exec.Command(cmdHtpasswd, "-nb", user, pass).Output()
 		if err != nil {
 			continue
 		}
