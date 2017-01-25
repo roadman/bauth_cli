@@ -60,7 +60,8 @@ func (c *AddCommand) Run(args []string) int {
 		if err != nil {
 			continue
 		}
-		fmt.Printf("%s\t# pass: %s\n", strings.TrimRight(string(out), "\n"), pass)
+		fmt.Printf("# pass: %s\n", pass)
+		fmt.Printf("%s\n", strings.TrimRight(string(out), "\n"))
 	}
 
 	return 0
