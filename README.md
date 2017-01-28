@@ -1,10 +1,12 @@
 # bauth_cli
 
-
+Basic Auth Setting Generate Command.
 
 ## Description
 
 ## Usage
+
+bauth_cli generate login num
 
 ## Install
 

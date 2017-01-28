@@ -7,18 +7,8 @@ import (
 
 func Commands(meta *command.Meta) map[string]cli.CommandFactory {
 	return map[string]cli.CommandFactory{
-		"add": func() (cli.Command, error) {
-			return &command.AddCommand{
-				Meta: *meta,
-			}, nil
-		},
-		"list": func() (cli.Command, error) {
-			return &command.ListCommand{
-				Meta: *meta,
-			}, nil
-		},
-		"delete": func() (cli.Command, error) {
-			return &command.DeleteCommand{
+		"generate": func() (cli.Command, error) {
+			return &command.GenerateCommand{
 				Meta: *meta,
 			}, nil
 		},
