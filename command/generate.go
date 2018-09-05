@@ -99,7 +99,7 @@ func Exists(filename string) bool {
 
 func genStringNum(cmd string, userString string, user string) {
 	pass := randomString(8)
-	out, err := exec.Command(cmd, "-nb", user, pass).Output()
+	out, err := exec.Command(cmd, "-nbd", user, pass).Output()
 	if err == nil {
 		fmt.Printf("# login: %s , pass: %s\n", user, pass)
 		fmt.Printf("%s\n", strings.TrimRight(string(out), "\n"))
